@@ -40,14 +40,14 @@ ThemeData lightTheme = ThemeData(
 class GradientBackground extends StatelessWidget {
   final Widget child;
 
-  GradientBackground({required this.child});
+  const GradientBackground({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

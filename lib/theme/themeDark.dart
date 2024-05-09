@@ -4,8 +4,7 @@ final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   scaffoldBackgroundColor: Colors.black,
   primaryColor: Colors.blueGrey,
- 
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: Colors.blueGrey,
     centerTitle: true,
     foregroundColor: Colors.white,
@@ -30,9 +29,9 @@ final ThemeData darkTheme = ThemeData(
       ),
     ),
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: Colors.white,
-    backgroundColor: const Color.fromARGB(255, 106, 141, 255),
+    backgroundColor: Color.fromARGB(255, 106, 141, 255),
   ),
   cardTheme: CardTheme(
     color: Colors.blueGrey[900],

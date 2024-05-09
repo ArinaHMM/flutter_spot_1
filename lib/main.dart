@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_spot_1/database/auth/service.dart';
 import 'package:flutter_spot_1/routes/routes.dart';
-import 'package:flutter_spot_1/theme/themeDark.dart';
+//import 'package:flutter_spot_1/theme/themeDark.dart';
 import 'package:flutter_spot_1/theme/themeLight.dart';
 import 'package:provider/provider.dart';
 

@@ -7,14 +7,14 @@ class VerificationPage extends StatelessWidget {
   final String verificationId;
   final AuthService authService = AuthService();
 
-  VerificationPage({Key? key, required this.verificationId}) : super(key: key);
+  VerificationPage({super.key, required this.verificationId});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: lightTheme, 
+      theme: lightTheme,
       home: Scaffold(
-        backgroundColor: Colors.transparent, 
+        backgroundColor: Colors.transparent,
         body: GradientBackground(
           child: Center(
             child: SingleChildScrollView(
@@ -26,7 +26,7 @@ class VerificationPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 1.0,
                     height: MediaQuery.of(context).size.height * 0.3,
                   ),
-                  Text(
+                  const Text(
                     'Введите код подтверждения',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -34,7 +34,7 @@ class VerificationPage extends StatelessWidget {
                       fontSize: 24.0,
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   TextField(
                     controller: codeController,
                     keyboardType: TextInputType.number,
@@ -47,32 +47,33 @@ class VerificationPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () async {
-                      bool verified = await authService.verifyCode(codeController.text);
+                      bool verified =
+                          await authService.verifyCode(codeController.text);
                       if (verified) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Код подтверждения успешно проверен'),
                           ),
                         );
-                                              Navigator.popAndPushNamed(context, '/auth');
+                        Navigator.popAndPushNamed(context, '/auth');
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Неверный код подтверждения'),
                           ),
                         );
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 253, 103, 3),
+                      backgroundColor: const Color.fromARGB(255, 253, 103, 3),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
-                    child: Text('Подтвердить'),
+                    child: const Text('Подтвердить'),
                   ),
                 ],
               ),

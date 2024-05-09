@@ -3,10 +3,10 @@ import 'package:flutter_spot_1/database/auth/service.dart';
 import 'package:flutter_spot_1/database/collections/users_collections.dart';
 import 'package:flutter_spot_1/pages/code.dart'; // Импортируйте страницу верификации
 import 'package:flutter_spot_1/theme/themeLight.dart';
-import 'package:toast/toast.dart';
+//import 'package:toast/toast.dart';
 
 class RegistrationPage extends StatefulWidget {
-  const RegistrationPage({Key? key}) : super(key: key);
+  const RegistrationPage({super.key});
 
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -35,8 +35,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     width: MediaQuery.of(context).size.width * 1.0,
                     height: MediaQuery.of(context).size.height * 0.3,
                   ),
-                  SizedBox(height: 20.0),
-                  Text(
+                  const SizedBox(height: 20.0),
+                  const Text(
                     'Введите номер',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -44,32 +44,32 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
+                  const SizedBox(height: 10.0),
+                  const Text(
                     'Нужно ввести номер',
                     style: TextStyle(
                       fontStyle: FontStyle.italic,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
                       controller: phoneNumberController,
                       decoration: InputDecoration(
                         hintText: 'Номер телефона',
-                        prefix: Text(countryCode),
-                        prefixIcon: Icon(Icons.phone),
+                        prefix: const Text(countryCode),
+                        prefixIcon: const Icon(Icons.phone),
                         filled: true,
-                        fillColor: Color.fromARGB(255, 211, 230, 255),
+                        fillColor: const Color.fromARGB(255, 211, 230, 255),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () async {
                       bool verified = await authService.verifyPhoneNumber(
@@ -77,29 +77,31 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         context,
                       );
                       if (verified) {
-                        
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => VerificationPage(verificationId: authService.verificationId,), 
+                            builder: (context) => VerificationPage(
+                              verificationId: authService.verificationId,
+                            ),
                           ),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Не удалось отправить код подтверждения'),
+                          const SnackBar(
+                            content:
+                                Text('Не удалось отправить код подтверждения'),
                           ),
                         );
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      fixedSize: Size(250, 30),
-                      backgroundColor: Color.fromARGB(255, 253, 103, 3),
+                      fixedSize: const Size(250, 30),
+                      backgroundColor: const Color.fromARGB(255, 253, 103, 3),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
-                    child: Text('Продолжить'),
+                    child: const Text('Продолжить'),
                   ),
                 ],
               ),
