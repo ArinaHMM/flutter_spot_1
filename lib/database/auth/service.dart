@@ -4,7 +4,7 @@ import 'package:flutter_spot_1/database/auth/model.dart';
 
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-String verificationId = '';
+  String verificationId = '';
 
   Future<UserModel?> signIn(String email, String password) async {
     try {
@@ -15,7 +15,7 @@ String verificationId = '';
 
       return UserModel.fromFirebase(user);
     } catch (e) {
-      print('Ошибка при входе: $e');
+      debugPrint('Ошибка при входе: $e');
       return null;
     }
   }
@@ -43,7 +43,8 @@ String verificationId = '';
         .map((user) => user != null ? UserModel.fromFirebase(user) : null);
   }
 
-  Future<bool> verifyPhoneNumber(String phoneNumber, BuildContext context) async {
+  Future<bool> verifyPhoneNumber(
+      String phoneNumber, BuildContext context) async {
     try {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
@@ -51,20 +52,19 @@ String verificationId = '';
           await _firebaseAuth.signInWithCredential(credential);
         },
         verificationFailed: (FirebaseAuthException e) {
-          print('Ошибка: ${e.message}');
-          return; 
+          debugPrint('Ошибка: ${e.message}');
+          return;
         },
         codeSent: (String verificationId, int? resendToken) {
-          
           this.verificationId = verificationId;
           Navigator.pushNamed(context, '/ver');
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
-        timeout: Duration(seconds: 60),
+        timeout: const Duration(seconds: 60),
       );
       return true;
     } catch (e) {
-      print('Ошибка: $e');
+      debugPrint('Ошибка: $e');
       return false;
     }
   }
@@ -72,13 +72,13 @@ String verificationId = '';
   Future<bool> verifyCode(String verificationCode) async {
     try {
       AuthCredential credential = PhoneAuthProvider.credential(
-        verificationId: verificationId, 
+        verificationId: verificationId,
         smsCode: verificationCode,
       );
       await _firebaseAuth.signInWithCredential(credential);
       return true;
     } catch (e) {
-      print('Ошибка: $e');
+      debugPrint('Ошибка: $e');
       return false;
     }
   }

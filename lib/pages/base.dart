@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class SimplePage extends StatelessWidget {
-  const SimplePage({Key? key}) : super(key: key);
+  const SimplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Простая страница'),
+        title: const Text('Простая страница'),
       ),
-      body: Center(
+      body: const Center(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

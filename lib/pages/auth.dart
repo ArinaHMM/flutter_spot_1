@@ -4,7 +4,7 @@ import 'package:toast/toast.dart';
 import 'package:flutter_spot_1/database/auth/service.dart';
 
 class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  const AuthPage({super.key});
 
   @override
   State<AuthPage> createState() => _AuthPageState();
@@ -33,20 +33,20 @@ class _AuthPageState extends State<AuthPage> {
                     width: MediaQuery.of(context).size.width * 0.6,
                     height: MediaQuery.of(context).size.height * 0.3,
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   _buildRoundedInput(
                     controller: emailController,
                     hintText: 'Email',
                     prefixIcon: Icons.email,
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   _buildRoundedInput(
                     controller: passwordController,
                     hintText: 'Password',
                     prefixIcon: Icons.lock,
                     obscureText: true,
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.06,
                     width: MediaQuery.of(context).size.width * 0.55,
@@ -82,7 +82,7 @@ class _AuthPageState extends State<AuthPage> {
                       },
                       child: const Text('Войти!'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 253, 103, 3), 
+                        backgroundColor: const Color.fromARGB(255, 253, 103, 3),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
@@ -92,15 +92,15 @@ class _AuthPageState extends State<AuthPage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   _buildRoundedButton(
                     text: 'Создать аккаунт',
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/reg');
                     },
                   ),
-                  SizedBox(height: 5.0),
-                  Text(
+                  const SizedBox(height: 5.0),
+                  const Text(
                     'В первый раз?',
                     style: TextStyle(color: Colors.black),
                   ),
@@ -137,13 +137,13 @@ class _AuthPageState extends State<AuthPage> {
           fillColor: Colors.grey[200],
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.transparent,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.transparent,
             ),
           ),
@@ -164,14 +164,14 @@ class _AuthPageState extends State<AuthPage> {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.bold,
           ),
         ),
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-              backgroundColor ?? Colors.black), 
+          backgroundColor:
+              MaterialStateProperty.all<Color>(backgroundColor ?? Colors.black),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),

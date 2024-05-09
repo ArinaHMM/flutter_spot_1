@@ -5,9 +5,9 @@ import 'package:flutter_spot_1/pages/reg.dart';
 
 final routes = {
   '/auth': (context) => const AuthPage(),
- '/reg': (context) => const RegistrationPage(),
-  '/ver': (context) =>  VerificationPage(verificationId: '',),
-  '/base': (context) =>  SimplePage(),
-
-
+  '/reg': (context) => const RegistrationPage(),
+  '/ver': (context) => VerificationPage(
+        verificationId: '',
+      ),
+  '/base': (context) => const SimplePage(),
 };
